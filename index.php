@@ -3,7 +3,7 @@ Hello Rahul here
 
 <pre>
 <?php
-
+print `date`;
 print `ifconfig`;
 
 ?>
