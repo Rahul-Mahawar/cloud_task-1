@@ -13,7 +13,12 @@ resource "aws_instance" "new" {
   key_name = "my_key"
   security_groups = ["add_80"] 
   
-
+   tags = {
+    Name = "mytest"
+  }
+}
+  
+  
 // Connection to ec2 Instance
 
   connection {
@@ -34,11 +39,6 @@ resource "aws_instance" "new" {
     ]
   }
 
-  tags = {
-    Name = "mytest"
-  }
-}
-  
 
 // Creating Key
 
