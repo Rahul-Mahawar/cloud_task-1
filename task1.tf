@@ -160,7 +160,7 @@ resource "aws_cloudfront_distribution" "allow-cloudfront" {
 
 
     
-// SSL certificate for the service
+// SSL Certificate for the service
 
     viewer_certificate {
         cloudfront_default_certificate = true
