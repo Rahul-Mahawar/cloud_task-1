@@ -4,7 +4,6 @@ provider "aws" {
 	region = "ap-south-1"
 }
 
-
 // Creating AWS Instance
 
 resource "aws_instance" "new" {
@@ -17,8 +16,7 @@ resource "aws_instance" "new" {
     Name = "mytest"
   }
 }
-  
-  
+ 
 // Connection to ec2 Instance
 
   connection {
@@ -27,7 +25,6 @@ resource "aws_instance" "new" {
   private_key = "${tls_private_key.key1.private_key_pem}"
   host     = "${aws_instance.new.public_ip}"
   }
-
 
 // Remote login and start services
 
@@ -38,7 +35,6 @@ resource "aws_instance" "new" {
       "sudo systemctl enable httpd",
     ]
   }
-
 
 // Creating Key
 
@@ -56,7 +52,6 @@ resource "aws_key_pair" "key3" {
  public_key = "${tls_private_key.key1.public_key_openssh}"
 }
 
-
 // Store public IP in .txt file
 
 resource "null_resource" "nulllocal2"  {
@@ -64,7 +59,6 @@ resource "null_resource" "nulllocal2"  {
 	    command = "echo  ${aws_instance.new.public_ip} > publicip.txt"
   	}
 }
-
 
 // Attaching the EBS volume
 
